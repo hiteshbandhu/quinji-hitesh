@@ -1,5 +1,8 @@
 ### Made Using Claude and here is the prompt
 
+
+#### URL FOR CODE REFERENCE : https://www.sourcecodester.com/tutorial/javascript/15906/creating-screencapture-chrome-extension-using-js-and-html2canvas-tutorial
+
 ```txt
 Make me a chrome extension to do the following in javascript : 
 
@@ -13,4 +16,7 @@ Make me a chrome extension to do the following in javascript :
 -- i should see the file being downloaded in the download pane
 -- make sure to handle errors
 ```
+
+### Touch command to make all the files
+
 
