@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET Request to Server</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c2f33;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #23272a;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #7289da;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5b6eae;
+        }
+        .response-container {
+            margin-top: 20px;
+        }
+        .response {
+            white-space: pre-wrap;
+            background-color: #99aab5;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GET Request to Server</h1>
+        <form id="getForm">
+            <label for="itemId">Item ID:</label>
+            <input type="text" id="itemId" name="itemId" required>
+            <button type="submit">Send Request</button>
+        </form>
+        <div class="response-container">
+            <h2>Response:</h2>
+            <div id="response" class="response"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('getForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const itemId = document.getElementById('itemId').value;
+            const url = `http://localhost:8000/gemini/${itemId}`;
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+                } else {
+                    document.getElementById('response').textContent = `Error: ${response.statusText}`;
+                }
+            } catch (error) {
+                document.getElementById('response').textContent = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
