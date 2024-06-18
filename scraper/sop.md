@@ -1,7 +1,7 @@
 Sure, I'll explain each part of the code and the functions involved in the Chrome extension.
 
 
--- I used claude and my prompt was this one : 
+```I used claude and my prompt was this one``` : 
 
 ```md
 <Prompt>

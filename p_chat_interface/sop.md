@@ -3,6 +3,11 @@ This README documents the step-by-step evolution of our chat interface HTML file
 
 ---
 
+```bash
+for making requirements : ``` pip freeze > requirements.txt ```
+for installing from txt : ``` pip install -r requirements.txt ```
+```
+
 #### **Change 1: Basic GET Request Form**
 - **Added:**
   - Basic structure to send a GET request.
