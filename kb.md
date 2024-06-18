@@ -1,6 +1,6 @@
 # HITESH BANDHU
 
-- best model for using code : lechat-mistral. https://chat.mistral.ai/chat
+- best model for using code : lechat-mistral, link == https://chat.mistral.ai/chat
 
 
 

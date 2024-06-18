@@ -1,5 +1,33 @@
 Sure, I'll explain each part of the code and the functions involved in the Chrome extension.
 
+
+-- I used claude and my prompt was this one : 
+
+```md
+<Prompt>
+Make me a Chrome extension that can scrape the HTML source code of the current web page, send it to a Generative AI API for cleaning and extracting the visible text content, and display the cleaned content in a new tab.
+
+The flow should be as follows:
+
+1. Extract the HTML source code of the current web page.
+2. Use the Cheerio library to clean and extract the visible text content from the HTML source code.
+3. Send the HTML source code to a Generative AI API with instructions to extract the visible text content while preserving the structure and order of the content.
+4. Receive the cleaned content from the Generative AI API.
+5. Display the cleaned content in a new tab.
+
+Please provide the complete code for the Chrome extension, including the manifest file, background script, content script, and any other necessary files or dependencies.
+</Prompt>
+
+<Instructions>
+- Use the latest versions of the required dependencies, such as Cheerio and the Google Generative AI library.
+- Follow best practices for Chrome extension development, including proper permissions, content security policies, and event handling.
+- Ensure that the extension code is modular and easy to maintain, with clear separation of concerns between different components (e.g., background script, content script, UI).
+- Handle potential errors and edge cases gracefully, such as network errors, API failures, or unexpected input.
+- Provide detailed comments in the code to explain the functionality and logic behind each part of the extension.
+- Include instructions on how to load and use the extension in Chrome.
+</Instructions>
+
+```
 **1. `manifest.json`**
 
 This file contains the metadata and configuration for the Chrome extension. Here's what each property means:
