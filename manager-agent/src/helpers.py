@@ -3,7 +3,7 @@ from openai import OpenAI
 
 client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
 
-def get_llm_response(prompt):
+def get_llm_response(prompt:str):
     completion = client.chat.completions.create(
     model="gpt-4o",
     messages=[
