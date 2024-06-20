@@ -87,6 +87,10 @@ The first chapter of the book provides an overview of the historical development
 
 #### 1.3 with_lc file
 
+- using langchain, loading logic is easy and also, we can just send the required context to the llm, hence saving is clutter and tokens
+
+![rag](https://docs.llamaindex.ai/en/stable/_static/getting_started/basic_rag.png)
+
 - using langchain to implement the loader, get the file and save it in a local vector db, get the relevant context and send it to the llm
 
 - this whole set of steps is called RAG, it helps in saving tokens and only sending the relevant context to the llm to answer the question
