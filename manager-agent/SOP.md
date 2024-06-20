@@ -8,7 +8,10 @@
 - helpers.py function has code we use often - like calling ```gpt4 api``` etc.
 - ```.env``` file has all the environment variables
 - the name of the files and folders complement the work they do, for eg: the ```without_lc``` file means the code is implementation without langchain etc.
+
+**TO SETUP FOR THE FIRST TIME, Make a virtual environment using ```python -m venv env```, activate it using ```cd env/bin/activate``` and then, do ```pip install -r requirements.txt``` to install all the dependencies **
 ---
+
 
 #### 1.1 helpers.py file
 
