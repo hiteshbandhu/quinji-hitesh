@@ -5,7 +5,7 @@
 -- we used code from this website in our own code
 
 ### Here is the prompt used to generate the response in GPT
-```txt
+```md
 Make me a chrome extension to do the following in javascript : 
 
    - use selenium to take screenshot of the page
@@ -45,11 +45,11 @@ A Chrome extension typically consists of:
 
 ***Step 1***: Create the Project Directory
 
-Create a new directory named ScreenCaptureExtension. 
+Create a new directory named SCROLL_SCREEN_JPG. 
 
 ***Step 2***: Create the manifest.json File
 
-Inside ScreenCaptureExtension, create a file named manifest.json. This is the content of the file
+Inside SCROLL_SCREEN_JPG, create a file named manifest.json. This is the content of the file
 
 ```json
 {
@@ -122,7 +122,7 @@ We needed an icon to display in the chrome navigation bar, so add a file with th
 
 2. Enable "Developer mode" using the toggle switch in the top-right corner.
 
-3. Click "Load unpacked" and select the `ScreenCaptureExtension` directory.”
+3. Click "Load unpacked" and select the `SCROLL_SCREEN_JPG` directory.”
 
 ![alt text](docs_img/image.png)
 
