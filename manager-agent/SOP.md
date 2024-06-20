@@ -90,3 +90,52 @@ The first chapter of the book provides an overview of the historical development
 
 - here is the code implementation
 
+```python
+from langchain.document_loaders import PyPDFLoader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.chains import RetrievalQA
+from langchain.llms import OpenAI
+
+ # Load document using PyPDFLoader document loader
+
+path = ""
+
+loader = PyPDFLoader(f"{path}.pdf")
+documents = loader.load()
+    # Split document in chunks
+text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
+docs = text_splitter.split_documents(documents=documents)
+
+embeddings = OpenAIEmbeddings()
+    # Create vectors
+vectorstore = FAISS.from_documents(docs, embeddings)
+    # Persist the vectors locally on disk
+vectorstore.save_local("faiss_index_constitution")
+
+
+def query_pdf(query):
+    # Load from local storage
+    persisted_vectorstore = FAISS.load_local("faiss_index_constitution", embeddings, allow_dangerous_deserialization=True)
+
+    # Use RetrievalQA chain for orchestration
+    qa = RetrievalQA.from_chain_type(llm=OpenAI(), chain_type="stuff", retriever=persisted_vectorstore.as_retriever())
+    result = qa.run(query)
+    print(result)
+
+
+def main():
+    query = input("Type in your query: \n")
+    while query != "exit":
+        query_pdf(query)
+        query = input("Type in your query: \n")
+
+
+if __name__ == "__main__":
+    main()
+```
+
+- make sure before running the file, you are inside the ```src/``` folder in the terminal, then only it can parse the pdf from the path
+- ignore all the warnings in the terminal, and run the file after specifying the path to your documents
+- when type in your query appears, give your query

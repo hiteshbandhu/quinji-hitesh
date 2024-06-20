@@ -6,7 +6,10 @@ from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 
  # Load document using PyPDFLoader document loader
-loader = PyPDFLoader("superintelligence.pdf")
+
+path = ""
+
+loader = PyPDFLoader(f"{path}.pdf")
 documents = loader.load()
     # Split document in chunks
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=30, separator="\n")
