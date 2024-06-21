@@ -1,6 +1,14 @@
 from langchain_openai import ChatOpenAI
 from os import getenv
-llm = ChatOpenAI(model="gpt-3.5-turbo-0125", api_key=getenv("OPENAI_API_KEY"))
+from dotenv import load_dotenv
+# Load the .env file
+load_dotenv()
+# Verify the environment variable is loaded
+api_key = getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY environment variable not found")
+
+llm = ChatOpenAI(model="gpt-3.5-turbo-0125", api_key=api_key)
 
 from langchain import hub
 from langchain_chroma import Chroma
@@ -34,9 +42,10 @@ rag_chain = (
     | StrOutputParser()
 )
 
-question = ""
+question = "hi ! How are you ?"
 
 while question != "exit":
     question = str(input("Type Your Query: \n\n"))
     output = rag_chain.invoke(question)
-    print("\n-" + output)
+    print("\n-" + output + "\n******")
+
