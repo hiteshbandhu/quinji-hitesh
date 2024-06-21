@@ -2,18 +2,18 @@ from helpers import get_llm_response
 from pypdf import PdfReader 
 
 #read the pdf save it
-reader = PdfReader('superintelligence.pdf') 
+reader = PdfReader('Lecture04.pdf') 
 
-book = []
+docs = []
 
 for page in reader.pages:
-    book.append(str(page.extract_text()) + "\n\n")
+    docs.append(str(page.extract_text()) + "\n\n")
 
-docs = str(book[:50])
-
+# docs = str(book[:50]) ## use this if the book is too long for example
 
 ## specifying the prompt and variables
-QUESTION = "What is this book about, who wrote it and tell me something about the initial content ?"
+QUESTION = str(input("What is your question : \n\n"))
+
 
 PROMPT = f"""    
 
