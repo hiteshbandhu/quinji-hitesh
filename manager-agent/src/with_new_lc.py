@@ -1,6 +1,8 @@
 from langchain_openai import ChatOpenAI
 from os import getenv
 from dotenv import load_dotenv
+
+
 # Load the .env file
 load_dotenv()
 # Verify the environment variable is loaded
@@ -33,7 +35,6 @@ prompt = hub.pull("rlm/rag-prompt")
 
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
-
 
 rag_chain = (
     {"context": retriever | format_docs, "question": RunnablePassthrough()}

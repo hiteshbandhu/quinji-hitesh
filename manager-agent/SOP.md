@@ -85,7 +85,9 @@ The table of contents of the book indicates a comprehensive exploration of vario
 
 The first chapter of the book provides an overview of the historical developments and current capabilities of artificial intelligence, laying the groundwork for understanding the trajectory towards superintelligence and highlighting the importance of preparing for both its opportunities and risks.
 
-#### 1.3 with_lc file
+#### 1.3 with_lc file 
+
+``` 🚨 don't use this one as this method was not used as the version has deprecated, also it was showing env error```
 
 - using langchain, loading logic is easy and also, we can just send the required context to the llm, hence saving is clutter and tokens
 
@@ -146,3 +148,70 @@ if __name__ == "__main__":
 - make sure before running the file, you are inside the ```src/``` folder in the terminal, then only it can parse the pdf from the path
 - ignore all the warnings in the terminal, and run the file after specifying the path to your documents
 - when type in your query appears, give your query
+
+#### 1.4 with_new_lc file 
+
+```this is the new version setup - using LCEL - langchain expression language```
+
+Link : https://python.langchain.com/v0.1/docs/expression_language/
+
+- this version doesn't depends on the automatic env-picker in langchain but uses the ```load_dotenv()``` function in python to load the file from the ```.env```
+
+- it uses ```openai embeddings``` to make the vector from the question
+
+- then uses the ```chroma db``` vector store to do similarity search and sends it to the llm, to save tokens and context
+
+- here is the code 
+
+```python
+from langchain_openai import ChatOpenAI
+from os import getenv
+from dotenv import load_dotenv
+
+
+# Load the .env file
+load_dotenv()
+# Verify the environment variable is loaded
+api_key = getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("OPENAI_API_KEY environment variable not found")
+
+llm = ChatOpenAI(model="gpt-3.5-turbo-0125", api_key=api_key)
+
+from langchain import hub
+from langchain_chroma import Chroma
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
+from langchain_openai import OpenAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Load, chunk and index the contents of the blog.
+loader = PyPDFLoader("./Lecture09a.pdf")
+
+docs = loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings())
+
+retriever = vectorstore.as_retriever()
+prompt = hub.pull("rlm/rag-prompt")
+
+def format_docs(docs):
+    return "\n\n".join(doc.page_content for doc in docs)
+
+rag_chain = (
+    {"context": retriever | format_docs, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+question = "hi ! How are you ?"
+
+while question != "exit":
+    question = str(input("Type Your Query: \n\n"))
+    output = rag_chain.invoke(question)
+    print("\n-" + output + "\n******")
+```
