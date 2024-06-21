@@ -1,0 +1,132 @@
+> Entering new CrewAgentExecutor chain...
+Thought: I now can give a great answer
+Final Answer: my best complete final answer to the task.
+
+```python
+import os
+from PyPDF2 import PdfMerger
+
+def combine_pdfs(directory, output_filename):
+    # Create a PdfMerger object
+    merger = PdfMerger()
+    
+    # Iterate through all the files in the directory
+    for filename in os.listdir(directory):
+        # Check if the file is a PDF
+        if filename.endswith(".pdf"):
+            filepath = os.path.join(directory, filename)
+            # Append the PDF to the merger
+            merger.append(filepath)
+    
+    # Write the combined PDF to the output file
+    with open(output_filename, 'wb') as output_file:
+        merger.write(output_file)
+
+    # Close the PdfMerger object
+    merger.close()
+
+if __name__ == "__main__":
+    # Define the directory containing the PDFs and the output filename
+    directory = "path/to/your/pdf_directory"
+    output_filename = "combined_output.pdf"
+    
+    # Combine all PDFs in the directory
+    combine_pdfs(directory, output_filename)
+```
+
+This script uses the `PyPDF2` library to combine all PDF files in a specified directory into a single output PDF file. Make sure to replace `"path/to/your/pdf_directory"` with the actual path to your directory containing the PDF files. The combined PDF will be saved as `combined_output.pdf` in the current working directory. 
+
+To install the necessary library, you can use the following pip command:
+```sh
+pip install PyPDF2
+```
+
+This code is ready to be executed in a Python environment.
+
+> Finished chain.
+ [2024-06-21 14:54:02][DEBUG]: == [Programmer] Task output: my best complete final answer to the task.
+
+```python
+import os
+from PyPDF2 import PdfMerger
+
+def combine_pdfs(directory, output_filename):
+    # Create a PdfMerger object
+    merger = PdfMerger()
+    
+    # Iterate through all the files in the directory
+    for filename in os.listdir(directory):
+        # Check if the file is a PDF
+        if filename.endswith(".pdf"):
+            filepath = os.path.join(directory, filename)
+            # Append the PDF to the merger
+            merger.append(filepath)
+    
+    # Write the combined PDF to the output file
+    with open(output_filename, 'wb') as output_file:
+        merger.write(output_file)
+
+    # Close the PdfMerger object
+    merger.close()
+
+if __name__ == "__main__":
+    # Define the directory containing the PDFs and the output filename
+    directory = "path/to/your/pdf_directory"
+    output_filename = "combined_output.pdf"
+    
+    # Combine all PDFs in the directory
+    combine_pdfs(directory, output_filename)
+```
+
+This script uses the `PyPDF2` library to combine all PDF files in a specified directory into a single output PDF file. Make sure to replace `"path/to/your/pdf_directory"` with the actual path to your directory containing the PDF files. The combined PDF will be saved as `combined_output.pdf` in the current working directory. 
+
+To install the necessary library, you can use the following pip command:
+```sh
+pip install PyPDF2
+```
+
+This code is ready to be executed in a Python environment.
+
+
+my best complete final answer to the task.
+
+```python
+import os
+from PyPDF2 import PdfMerger
+
+def combine_pdfs(directory, output_filename):
+    # Create a PdfMerger object
+    merger = PdfMerger()
+    
+    # Iterate through all the files in the directory
+    for filename in os.listdir(directory):
+        # Check if the file is a PDF
+        if filename.endswith(".pdf"):
+            filepath = os.path.join(directory, filename)
+            # Append the PDF to the merger
+            merger.append(filepath)
+    
+    # Write the combined PDF to the output file
+    with open(output_filename, 'wb') as output_file:
+        merger.write(output_file)
+
+    # Close the PdfMerger object
+    merger.close()
+
+if __name__ == "__main__":
+    # Define the directory containing the PDFs and the output filename
+    directory = "path/to/your/pdf_directory"
+    output_filename = "combined_output.pdf"
+    
+    # Combine all PDFs in the directory
+    combine_pdfs(directory, output_filename)
+```
+
+This script uses the `PyPDF2` library to combine all PDF files in a specified directory into a single output PDF file. Make sure to replace `"path/to/your/pdf_directory"` with the actual path to your directory containing the PDF files. The combined PDF will be saved as `combined_output.pdf` in the current working directory. 
+
+To install the necessary library, you can use the following pip command:
+```sh
+pip install PyPDF2
+```
+
+This code is ready to be executed in a Python environment.
