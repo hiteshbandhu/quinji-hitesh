@@ -10,6 +10,14 @@ research_agent = Agent(
   verbose=True
 )
 
+writer = Agent(
+  role='Writer',
+  goal=f"""Write me an article using""",
+  backstory="""You're a JSON reader, who can read data and summarize it bullet points, that are very comprehensive and full of insights""",
+  verbose=True
+)
+
+
 json_tool = JSONSearchTool("content.json")
 
 task = Task(
