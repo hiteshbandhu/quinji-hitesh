@@ -29,6 +29,7 @@ dataclasses-json==0.6.7
 decorator==5.1.1
 Deprecated==1.2.14
 deprecation==2.1.0
+diskcache==5.6.3
 distro==1.9.0
 dnspython==2.6.1
 docker==7.1.0
@@ -40,6 +41,7 @@ fastapi==0.111.0
 fastapi-cli==0.0.4
 fastavro==1.9.4
 filelock==3.15.4
+FLAML==2.1.2
 flatbuffers==24.3.25
 frozenlist==1.4.1
 fsspec==2024.6.1
@@ -127,6 +129,7 @@ py==1.11.0
 pyarrow==16.1.0
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
+pyautogen==0.2.31
 pycparser==2.22
 pycryptodomex==3.20.0
 pydantic==2.7.4
@@ -171,6 +174,7 @@ SQLAlchemy==2.0.31
 starlette==0.37.2
 sympy==1.12.1
 tenacity==8.4.2
+termcolor==2.4.0
 tiktoken==0.7.0
 tokenizers==0.19.1
 tqdm==4.66.4
