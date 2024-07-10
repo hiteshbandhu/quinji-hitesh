@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Files Viewer</title>
+</head>
+<body>
+    <h1>Markdown Files Viewer</h1>
+    <ul id="fileList">
+        <!-- JavaScript will dynamically populate this list -->
+    </ul>
+
+    <script>
+        // Mock data representing markdown files
+        const markdownFiles = [
+            'README.md',
+            'CONTRIBUTING.md',
+            'LICENSE.md',
+            'CHANGELOG.md',
+            'docs/usage.md',
+            'docs/installation.md'
+        ];
+
+        // Function to create list items for each markdown file
+        function displayFiles(files) {
+            const fileList = document.getElementById('fileList');
+            files.forEach(file => {
+                const listItem = document.createElement('li');
+                listItem.textContent = file;
+                fileList.appendChild(listItem);
+            });
+        }
+
+        // Call the function to display files
+        displayFiles(markdownFiles);
+    </script>
+</body>
+</html>
