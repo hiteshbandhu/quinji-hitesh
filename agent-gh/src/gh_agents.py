@@ -1,8 +1,6 @@
 from crewai import Agent
-from tasks import *
-from main import code_tool, file_read_tool, issue_tool
 from textwrap import dedent
-
+from gh_tools import code_tool, issue_tool
 
 planning_agent = Agent(
   role='Senior Issue Manager',
