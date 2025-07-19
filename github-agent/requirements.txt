@@ -129,7 +129,7 @@ py==1.11.0
 pyarrow==16.1.0
 pyasn1==0.6.0
 pyasn1_modules==0.4.0
-pyautogen==0.2.31
+ag2==0.2.31
 pycparser==2.22
 pycryptodomex==3.20.0
 pydantic==2.7.4
